@@ -1,0 +1,6 @@
+{
+  "_comment": "US BIS connected-vehicle rule (15 CFR Part 791 Subpart D) screens VCS hardware and ADS/VCS software with a nexus to these jurisdictions. Confirm scope and effective model years with counsel (requirements §1, CIVI-SEC-012).",
+  "markets": {
+    "US": { "restricted_origins": ["CN", "RU"], "applies_to": "connectivity_stack" }
+  }
+}

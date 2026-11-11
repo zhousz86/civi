@@ -1,0 +1,20 @@
+# QNX security policy sketch for CIVI (compile with secpolcompile; validate on target).
+# Least privilege per process type: HMI processes get no physical-memory, I/O-privilege
+# or interrupt abilities, cannot spawn setuid binaries, and reach the vehicle only
+# through PPS objects whose POSIX permissions allow read + request-write (CIVI-SW-002,
+# -SEC-002, -SEC-005). Treat this as a starting point for the TARA (CIVI-SEC-007).
+
+type civi_telltale_t;
+type civi_hmi_t;
+type civi_thirdparty_t;   # sandbox for store apps (CIVI-SEC-005)
+
+# Telltale renderer: Screen client only.
+allow civi_telltale_t self:ability { prot_exec mem_peer };
+
+# HMI: Screen + GPU client, PPS client, no hardware access.
+allow civi_hmi_t self:ability { prot_exec mem_peer map_fixed };
+
+# Third-party apps: tighter still; no access to vehicle request objects (enforced by
+# PPS file permissions/ACLs) and no channel connections to platform servers other
+# than those explicitly granted.
+allow civi_thirdparty_t self:ability { prot_exec };

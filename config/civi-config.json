@@ -1,0 +1,74 @@
+{
+  "_comment": "CIVI runtime configuration. Every [TBD-n] from the requirements lives here so the OEM can close it without a software change (CIVI-DAT-009). Values are the proposed planning starting points from requirements §12.2, not commitments.",
+  "schema_version": 1,
+
+  "market": {
+    "country": "CA",
+    "province": "QC",
+    "_province_note": "CIVI-HMI-003: a vehicle configured for Quebec defaults to French",
+    "default_language": "fr",
+    "default_units": "metric"
+  },
+
+  "displays": {
+    "_note": "Screen display index per role. On QNX these map to the Screen displays defined in the Qualcomm BSP graphics.conf.",
+    "cluster":   { "index": 0, "width": 1920, "height": 720 },
+    "center":    { "index": 1, "width": 1920, "height": 1080 },
+    "passenger": { "index": 2, "width": 1920, "height": 1080 },
+    "hud":       { "index": 3, "width": 1280, "height": 480 }
+  },
+
+  "cluster": {
+    "telltales_from_safe_renderer": false,
+    "_telltale_note": "true on target: telltales are drawn by civi-telltaled on a dedicated Screen pipeline/z-order; the QML cluster leaves that strip empty (CIVI-PLT-002, CIVI-HMI-008)."
+  },
+
+  "distraction": {
+    "lockout_speed_kph": 8.0,
+    "_tbd": "TBD-7 — align to Transport Canada / NHTSA in-motion definition",
+    "hysteresis_kph": 2.0,
+    "max_list_items_moving": 6,
+    "motion_signal_timeout_ms": 500,
+    "_timeout_note": "Stale or invalid motion state is treated as moving (fail-safe)."
+  },
+
+  "i18n": {
+    "max_french_expansion_pct": 30,
+    "_tbd": "TBD-5"
+  },
+
+  "takeover": {
+    "max_latency_ms": 200,
+    "_tbd": "TBD-11 — placeholder until the AV safety case sets it",
+    "bilingual_display": "both"
+  },
+
+  "connectivity": {
+    "link_status_timeout_ms": 3000,
+    "offline_queue_limit_mb": 256,
+    "_tbd": "TBD-8",
+    "geo_latitude_limit_deg": 70.0,
+    "_tbd_geo": "TBD-12",
+    "passenger_wifi_max_devices": 10,
+    "_tbd_wifi": "TBD-15 — two per seating position (5 seats)"
+  },
+
+  "ota": {
+    "min_soc_pct": 60,
+    "min_temp_c": -30,
+    "max_temp_c": 60,
+    "require_parked": true,
+    "_note": "CIVI-SEC-008 install preconditions; min_soc relates to TBD-4"
+  },
+
+  "privacy": {
+    "policy_file": "consent-policy.json",
+    "data_residency": "CA",
+    "_residency_note": "CIVI-DAT-003 — routing to Canadian-hosted infrastructure by configuration"
+  },
+
+  "emergency": {
+    "sos_hold_ms": 3000,
+    "crash_cancel_window_s": 10
+  }
+}

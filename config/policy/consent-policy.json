@@ -1,0 +1,16 @@
+{
+  "_comment": "Consent policy (CIVI-DAT-001, -002, -009). Purposes, defaults and retention are data, not code. Defaults are the most privacy-protective setting in every province (CIVI-DAT-002).",
+  "policy_version": "2026.11-draft",
+  "legal_basis_reading": "strict (PIPEDA + Quebec Law 25 + Bill C-36 as tabled)",
+  "revocation": { "in_vehicle": "immediate", "cloud": "next_connection" },
+  "purposes": [
+    { "id": "nav_history",       "default": false, "retention_days": 90,  "residency": "CA", "required_for": [] },
+    { "id": "voice_recordings",  "default": false, "retention_days": 30,  "residency": "CA", "required_for": [] },
+    { "id": "driving_behaviour", "default": false, "retention_days": 365, "residency": "CA", "required_for": [] },
+    { "id": "location_sharing",  "default": false, "retention_days": 1,   "residency": "CA", "required_for": [] },
+    { "id": "av_data_loop",      "default": false, "retention_days": 180, "residency": "CA", "required_for": [], "_note": "CIVI-AVR-004 triggered capture" }
+  ],
+  "always_on": [
+    { "id": "emergency_location", "basis": "vital interest — 911/NG911 and automatic crash notification; cannot be disabled" }
+  ]
+}
