@@ -1,0 +1,14 @@
+{
+  "_comment": "Component provenance manifest feeding the per-vehicle SBOM (CIVI-SW-007, -SEC-010, -SEC-012). Every entry names supplier and country of origin. 'TBD' origins block a release build until closed.",
+  "components": [
+    { "name": "QNX Software Development Platform", "version": "8.0", "supplier": "BlackBerry QNX", "origin": "CA", "license": "commercial", "partition": "all", "connectivity_stack": true, "purl": "pkg:generic/qnx/sdp@8.0" },
+    { "name": "QNX OS for Safety", "version": "8.0", "supplier": "BlackBerry QNX", "origin": "CA", "license": "commercial", "partition": "cluster", "connectivity_stack": false },
+    { "name": "Qt for QNX (Qt Core, Gui, Qml, Quick)", "version": "6.8 LTS", "supplier": "The Qt Company", "origin": "FI", "license": "commercial", "partition": "cluster,infotainment", "connectivity_stack": false, "purl": "pkg:generic/qt/qtbase@6.8" },
+    { "name": "Qualcomm Snapdragon Cockpit BSP for QNX (display, Adreno GPU, audio)", "version": "TBD", "supplier": "Qualcomm Technologies", "origin": "US", "license": "commercial", "partition": "all", "connectivity_stack": false },
+    { "name": "Multi-orbit satellite terminal firmware", "version": "TBD", "supplier": "TBD (operator selection, requirements §12.1)", "origin": "TBD", "license": "commercial", "partition": "connectivity", "connectivity_stack": true },
+    { "name": "On-device bilingual speech engine (fr-CA / en-CA)", "version": "TBD", "supplier": "TBD", "origin": "TBD", "license": "commercial", "partition": "infotainment", "connectivity_stack": false },
+    { "name": "civi-platform", "version": "0.1.0", "supplier": "InnoStar Communications", "origin": "CA", "license": "proprietary", "partition": "cluster,infotainment", "connectivity_stack": false },
+    { "name": "civi-hmi (cluster, centre, passenger, HUD)", "version": "0.1.0", "supplier": "InnoStar Communications", "origin": "CA", "license": "proprietary", "partition": "cluster,infotainment", "connectivity_stack": false },
+    { "name": "civi-telltaled", "version": "0.1.0", "supplier": "InnoStar Communications", "origin": "CA", "license": "proprietary", "partition": "cluster", "connectivity_stack": false }
+  ]
+}

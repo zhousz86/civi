@@ -1,0 +1,12 @@
+# IFS build-file fragment for CIVI (merge into the Qualcomm BSP's .build file).
+# Boot-critical items live in the IFS so they start before the QNX6/Power-safe
+# filesystem with the HMI is mounted (CIVI-PLT-003, -PLT-004).
+
+[type=file uid=0 gid=0 perms=0755] /opt/civi/bin/civi-telltaled = ${CIVI_STAGE}/bin/civi-telltaled
+[type=file uid=0 gid=0 perms=0644] /opt/civi/share/telltales/ = ${CIVI_STAGE}/share/telltales
+[type=file uid=0 gid=0 perms=0644] /etc/civi/civi-config.json = ${CIVI_STAGE}/etc/civi/civi-config.json
+[type=file uid=0 gid=0 perms=0644] /etc/civi/consent-policy.json = ${CIVI_STAGE}/etc/civi/consent-policy.json
+[type=file uid=0 gid=0 perms=0755] /etc/civi/civi-startup.sh = civi-startup.sh
+
+# Everything Qt-based (cluster/centre/passenger/HUD, Qt for QNX libraries, QML caches)
+# is installed to the persistent filesystem under /opt/civi and started after mount.
